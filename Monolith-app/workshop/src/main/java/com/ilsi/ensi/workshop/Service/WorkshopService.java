@@ -2,9 +2,10 @@ package com.ilsi.ensi.workshop.Service;
 
 import com.ilsi.ensi.workshop.Entity.Workshop;
 import com.ilsi.ensi.workshop.Repository.WorkshopRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-
+@Service
 public class WorkshopService {
     private final WorkshopRepository workshopRepository;
 

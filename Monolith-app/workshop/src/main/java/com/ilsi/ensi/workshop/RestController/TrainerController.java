@@ -1,9 +1,12 @@
 package com.ilsi.ensi.workshop.RestController;
 
 
+import com.ilsi.ensi.workshop.Dto.TrainerDto;
 import com.ilsi.ensi.workshop.Entity.Trainer;
 import com.ilsi.ensi.workshop.Service.TrainerService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/trainer")
@@ -14,11 +17,18 @@ public class TrainerController {
         this.trainerService = trainerService;
     }
 
-
     @GetMapping
-    public Trainer findByName(@RequestBody Long id){
+    public List<TrainerDto> findAll(){
+        return this.trainerService.findall();
+    }
+
+
+    @GetMapping("{id}")
+    public TrainerDto findByName(@RequestBody Long id){
         return this.trainerService.findByIdCard(id);
     }
+
+
 
     @PostMapping
     public void addTrainer(@RequestBody Trainer trainer){

@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.*;
 public class TraineeController {
 
 
-
-
     private final TraineeService traineeService;
 
     public TraineeController(TraineeService traineeService) {
