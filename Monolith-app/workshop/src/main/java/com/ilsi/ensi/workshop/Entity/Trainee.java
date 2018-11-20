@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name="Trainee")
+@Table(name="Trainee    ")
 public class Trainee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

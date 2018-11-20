@@ -17,17 +17,19 @@ public class WorkshopController {
     }
 
 
-    @GetMapping
-    public Workshop findByNameWorkshop(@RequestBody String name){
+    @GetMapping("/{name}")
+    public Workshop findByNameWorkshop(@PathVariable String name){
         return this.workshopService.findByNameWorkshop(name);
     }
 
-    @PostMapping
-    public void addTrainer(@RequestBody Workshop workshop){
+    @PostMapping            // The trainer and the Workshop Center must Exist already   
+        public void addWorkshop(@RequestBody Workshop workshop){
         this.workshopService.addWorkshop(workshop);
     }
 
-    @DeleteMapping(path="/id")
+
+
+    @DeleteMapping("/{id}")
     public void delete (@PathVariable Long id)
     {
         this.workshopService.deleteWorkshop(id);

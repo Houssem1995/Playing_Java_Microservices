@@ -17,17 +17,17 @@ public class TraineeController {
         this.traineeService = traineeService;
     }
 
-    @GetMapping
-    public Trainee findByName(@RequestBody Long id){
+    @GetMapping("{id}")
+    public Trainee findById(@PathVariable Long id){
         return this.traineeService.findByIdCard(id);
     }
 
     @PostMapping
-    public void addTrainer(@RequestBody Trainee trainer){
+    public void addTrainee(@RequestBody Trainee trainer){
         this.traineeService.addTrainee(trainer);
     }
 
-    @DeleteMapping(path="/id")
+    @DeleteMapping("/{id}")
     public void delete (@PathVariable Long id)
     {
         this.traineeService.deleteTrainee(id);

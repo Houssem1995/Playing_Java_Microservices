@@ -35,7 +35,7 @@ public class TrainerController {
         this.trainerService.addTrainer(trainer);
     }
 
-    @DeleteMapping(path="/id")
+    @DeleteMapping("{/id}")
     public void delete (@PathVariable Long id)
     {
         this.trainerService.deleteTrainer(id);

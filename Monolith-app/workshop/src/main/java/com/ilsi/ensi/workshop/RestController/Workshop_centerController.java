@@ -27,7 +27,7 @@ public class Workshop_centerController {
         this.workshop_CenterService.addWorkshopCenter(workshop_center);
     }
 
-    @DeleteMapping(path="/id")
+    @DeleteMapping("/{id}")
     public void delete (@PathVariable Long id)
     {
         this.workshop_CenterService.deleteWorkshopCenter(id);

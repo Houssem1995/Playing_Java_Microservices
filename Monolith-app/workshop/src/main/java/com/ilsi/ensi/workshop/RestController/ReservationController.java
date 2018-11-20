@@ -19,7 +19,7 @@ public class ReservationController {
         this.reservationService.addReservation(reservation);
     }
 
-    @DeleteMapping(path="/id")
+    @DeleteMapping("/{id}")
     public void delete (@PathVariable Long id)
     {
         this.reservationService.deleteReservation(id);
