@@ -7,7 +7,8 @@ import dto.TraineeDto;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-
+//@RequiredArgsConstructor
+//@Slf4j
 @Service
 public class TraineeService {
     private final TraineeRepository traineeRepository;

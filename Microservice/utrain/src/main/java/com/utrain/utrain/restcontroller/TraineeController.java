@@ -1,6 +1,5 @@
 package com.utrain.utrain.restcontroller;
 
-;
 import com.utrain.utrain.entity.Trainee;
 import com.utrain.utrain.service.TraineeService;
 import dto.TraineeDto;
@@ -9,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 
+
+//@RequiredArgsConstructor
 @RestController
 @RequestMapping("/trainee")
 public class TraineeController {
