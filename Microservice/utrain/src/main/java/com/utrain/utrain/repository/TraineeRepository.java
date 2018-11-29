@@ -3,9 +3,9 @@ package com.utrain.utrain.repository;
 
 import com.utrain.utrain.entity.Trainee;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.stereotype.Repository;
 
-@RepositoryRestResource(collectionResourceRel = "trainee", path = "trainee")
+@Repository
 public interface TraineeRepository extends JpaRepository<Trainee,Long> {
 
 }

@@ -21,6 +21,7 @@ public class TrainerService {
     {
        return mapToDto(this.trainerRepository.save(
                                         new Trainer(
+                                                trainer.getIdCardTrainer(),
                                         trainer.getFirstName(),
                                         trainer.getLastName(),
                                         trainer.getEmail(),
@@ -34,7 +35,7 @@ public class TrainerService {
 
     public TrainerDto findByIdCard(Long id)
     {
-        return this.trainerRepository.findById(id).map(TrainerService::mapToDto).orElse(null);
+       return this.trainerRepository.findById(id).map(TrainerService::mapToDto).orElse(null);
     }
     public List <TrainerDto> findall(){
         System.out.println("Request to get all Trainer");
@@ -45,7 +46,7 @@ public class TrainerService {
 
         if (trainer != null){
 
-            return new TrainerDto(trainer.getFirstName(),trainer.getLastName(),trainer.getEmail(),trainer.getSpecialty());
+            return new TrainerDto(trainer.getIdCardTrainer(),trainer.getFirstName(),trainer.getLastName(),trainer.getEmail(),trainer.getSpecialty());
         }
         return null ;
     }

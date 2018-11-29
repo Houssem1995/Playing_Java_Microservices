@@ -2,16 +2,14 @@ package com.utrain.utrain.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name="Trainee    ")
+@Table(name="Trainee")
 public class Trainee {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idCard;
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    private Long idCard1;
 
 
     @NotNull
@@ -32,18 +30,19 @@ public class Trainee {
         //JPA
     }
 
-    public Trainee(String firstName, String lastName, String email) {
+    public Trainee(Long idCard1 ,String firstName, String lastName, String email) {
+        this.idCard1=idCard1;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
     }
 
     public Long getIdCard() {
-        return idCard;
+        return idCard1;
     }
 
-    public void setIdCard(Long idCard) {
-        this.idCard = idCard;
+    public void setIdCard(Long idCard1) {
+        this.idCard1 = idCard1;
     }
 
     public String getFirstName() {

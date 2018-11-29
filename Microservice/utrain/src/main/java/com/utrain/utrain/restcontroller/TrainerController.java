@@ -8,13 +8,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-
-
-//@RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 @RestController
+
+
 @RequestMapping("/trainer")
 public class TrainerController {
-    private final TrainerService trainerService;
+    private  final TrainerService trainerService;
+
+
 
     public TrainerController(TrainerService trainerService) {
         this.trainerService = trainerService;
@@ -27,7 +29,7 @@ public class TrainerController {
 
 
     @GetMapping("{id}")
-    public TrainerDto findByName(@RequestBody Long id){
+    public TrainerDto findByName(@PathVariable Long id){
         return this.trainerService.findByIdCard(id);
     }
 
@@ -38,7 +40,7 @@ public class TrainerController {
         this.trainerService.addTrainer(trainer);
     }
 
-    @DeleteMapping("{/id}")
+    @DeleteMapping("/{id}")
     public void delete (@PathVariable Long id)
     {
         this.trainerService.deleteTrainer(id);

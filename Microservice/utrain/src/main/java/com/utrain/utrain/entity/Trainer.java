@@ -4,12 +4,14 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 
+
 @Entity
+
 @Table(name="Trainer")
 public class Trainer {
-
+    @NotNull
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+   // @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idCardTrainer;
 
 
@@ -35,7 +37,8 @@ public class Trainer {
         //JPA
     }
 
-    public Trainer(String firstName, String lastName, String email, String specialty) {
+    public Trainer(Long idCardTrainer,String firstName, String lastName, String email, String specialty) {
+        this.idCardTrainer= idCardTrainer;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

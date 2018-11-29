@@ -5,10 +5,9 @@ import com.utrain.utrain.entity.Trainee;
 import com.utrain.utrain.repository.TraineeRepository;
 import dto.TraineeDto;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 //@RequiredArgsConstructor
 //@Slf4j
+
 @Service
 public class TraineeService {
     private final TraineeRepository traineeRepository;
@@ -19,7 +18,7 @@ public class TraineeService {
 
     public TraineeDto addTrainee(TraineeDto trainee)
     {
-        return mapToDto(traineeRepository.save(new Trainee(trainee.getFirstName(),trainee.getLastName(),trainee.getEmail())));
+        return mapToDto(traineeRepository.save(new Trainee(trainee.getIdCard(),trainee.getFirstName(),trainee.getLastName(),trainee.getEmail())));
     }
 
     public void deleteTrainee(Long id)
@@ -27,10 +26,12 @@ public class TraineeService {
         traineeRepository.deleteById(id);
     }
 
-    public Optional<Trainee> findByIdCard(Long id)
+    public TraineeDto findByIdCard(Long id)
     {
-        Optional<Trainee> trainee=  traineeRepository.findById(id);
-        return trainee;
+
+        return this.traineeRepository.findById(id).map(TraineeService::mapToDto).orElse(null);
+       // Optional<Trainee> trainee=  traineeRepository.findById(id);
+        //return trainee;
     }
 
     private static  TraineeDto mapToDto(Trainee trainee) {
