@@ -11,4 +11,5 @@ import java.util.Optional;
 @Repository
 public interface WorkshopRepository extends JpaRepository<Workshop,Long> {
     Optional<Workshop> findByTitle(String name);
+  //  Optional<Workshop>findById(Long id);
 }

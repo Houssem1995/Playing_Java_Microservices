@@ -1,11 +1,13 @@
 package com.uworkshop.entity;
 
+import dto.Workshop_CenterDto;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
+import java.util.Optional;
 
 @Entity
 public class Workshop {
@@ -31,17 +33,17 @@ public class Workshop {
 
 
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "idCenter", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private Workshop_Center workshop_Center;
+     @ManyToOne(fetch = FetchType.LAZY, optional = false)
+     @JoinColumn(name = "idCenter", nullable = false)
+     @OnDelete(action = OnDeleteAction.CASCADE)
+     private Workshop_Center workshop_Center;
 
 
 
     private Long trainerID;
 
     public Workshop() {
-        //Jpa
+        //JPA
     }
 
     public Workshop(String title, String description, String field, Workshop_Center workshop_Center, Long trainerID) {

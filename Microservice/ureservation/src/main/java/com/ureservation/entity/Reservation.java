@@ -26,15 +26,14 @@ public class Reservation {
     private Long  whorkshopID;
 
 
-    @NotNull
     @Column(name="reservationDate")
-    private LocalDate reservationDate;
+    private String reservationDate;
 
     public Reservation() {
         //JPA
     }
 
-    public Reservation(Long traineeID, Long whorkshopID, LocalDate reservationDate) {
+    public Reservation(Long traineeID, Long whorkshopID, String reservationDate) {
         this.traineeID = traineeID;
         this.whorkshopID = whorkshopID;
         this.reservationDate = reservationDate;
@@ -64,11 +63,11 @@ public class Reservation {
         this.whorkshopID = whorkshopID;
     }
 
-    public LocalDate getReservationDate() {
+    public String getReservationDate() {
         return reservationDate;
     }
 
-    public void setReservationDate(LocalDate reservationDate) {
+    public void setReservationDate(String reservationDate) {
         this.reservationDate = reservationDate;
     }
 

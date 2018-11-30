@@ -38,7 +38,9 @@ public class TraineeService {
 
         if (trainee != null){
 
-            return new TraineeDto(trainee.getFirstName(),trainee.getLastName(),trainee.getEmail());
+            TraineeDto TraineeDto = new TraineeDto(trainee.getFirstName(),trainee.getLastName(),trainee.getEmail());
+            TraineeDto.setIdCard(trainee.getIdCard());
+            return TraineeDto;
         }
         return null ;
     }

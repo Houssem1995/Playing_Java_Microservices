@@ -7,6 +7,7 @@ import com.uworkshop.service.Workshop_CenterService;
 import dto.Workshop_CenterDto;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -19,9 +20,12 @@ public class Workshop_centerController {
     public Workshop_centerController(Workshop_CenterService workshop_centerService) {
         workshop_CenterService = workshop_centerService;
     }
-
-
     @GetMapping
+    public List<Workshop_CenterDto> findAll(){
+        return this.workshop_CenterService.findall();
+    }
+
+    @GetMapping("/{name}")
     public Optional<Workshop_Center> findByNameCenter(@RequestBody String name){
         return this.workshop_CenterService.findByNameCenter(name);
     }

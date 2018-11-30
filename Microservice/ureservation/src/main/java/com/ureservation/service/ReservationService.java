@@ -4,7 +4,12 @@ package com.ureservation.service;
 import com.ureservation.entity.Reservation;
 import com.ureservation.repository.ReservationRepository;
 import dto.ReservationDto;
+import dto.TraineeDto;
+import dto.TrainerDto;
+import dto.WorkshopDto;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,7 +24,26 @@ public class ReservationService {
     }
     public ReservationDto addReservation(ReservationDto reservation)
     {
-        return mapToDto(reservationRepository.save(new Reservation(reservation.getTraineeID(),reservation.getWhorkshopID(),reservation.getReservationDate())));
+        RestTemplate restTemplate1 = new RestTemplate();
+        ResponseEntity<TraineeDto> traineeDtoResponseEntity
+                = restTemplate1.getForEntity(
+                "http://localhost:8088/trainee/{id}",
+                TraineeDto.class,
+                reservation.getTraineeID());
+        RestTemplate restTemplate2 = new RestTemplate();
+        ResponseEntity<WorkshopDto> workshopDtoResponseEntity
+                = restTemplate1.getForEntity(
+                "http://localhost:8087/Workshop/{id}",
+                WorkshopDto.class,
+                reservation.getWhorkshopID());
+
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaaa");
+        System.out.println(traineeDtoResponseEntity);
+        System.out.println(workshopDtoResponseEntity);
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaaa");
+
+
+        return mapToDto(reservationRepository.save(new Reservation(traineeDtoResponseEntity.getBody().getIdCard(),workshopDtoResponseEntity.getBody().getId(),reservation.getReservationDate())));
     }
 
     public void deleteReservation(Long id)

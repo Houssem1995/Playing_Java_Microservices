@@ -18,7 +18,7 @@ public class TraineeController {
         this.traineeService = traineeService;
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public TraineeDto findById(@PathVariable Long id){
         return this.traineeService.findByIdCard(id);
     }

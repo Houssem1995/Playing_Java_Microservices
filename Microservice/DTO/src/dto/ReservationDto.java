@@ -16,7 +16,7 @@ public class ReservationDto {
     private Long whorkshopID;
 
 
-    private LocalDate reservationDate;
+    private String reservationDate;
 
     public ReservationDto() {
 
@@ -24,7 +24,7 @@ public class ReservationDto {
     }
 
 
-    public ReservationDto(Long traineeID, Long whorkshopID, LocalDate reservationDate) {
+    public ReservationDto(Long traineeID, Long whorkshopID, String reservationDate) {
         this.traineeID = traineeID;
         this.whorkshopID = whorkshopID;
         this.reservationDate = reservationDate;
@@ -54,11 +54,11 @@ public class ReservationDto {
         this.whorkshopID = whorkshopID;
     }
 
-    public LocalDate getReservationDate() {
+    public String getReservationDate() {
         return reservationDate;
     }
 
-    public void setReservationDate(LocalDate reservationDate) {
+    public void setReservationDate(String reservationDate) {
         this.reservationDate = reservationDate;
     }
 }
